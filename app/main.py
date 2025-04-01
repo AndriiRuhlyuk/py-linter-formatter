@@ -22,7 +22,7 @@ def format_single_linter_file(file_path: str, errors: list) -> dict:
             if old_key in dc} | {"source": "flake8"}
          for dc in errors
          if dc["filename"] == file_path],
-        "path": file_path, "status": "failed"}
+        "path": file_path, "status": "failed" if errors else "passed"}
 
 
 def format_linter_report(linter_report: dict) -> list:
